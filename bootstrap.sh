@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Configuring development environment"
+read -p "Before continuing ensure you have Xcode installed and you have opened it and accepted the User Agreement..."
 
 # Ask for the administrator password upfront.
 sudo -v
