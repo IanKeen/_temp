@@ -15,29 +15,29 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Ensure latest xcode tools
 echo "Installing Xcode command line tools..."
-xcode-select --install >/dev/null
+xcode-select --install
 
 # Check for Homebrew,
 # Install if we don't have it
 if test ! $(which brew); then
   echo "Installing homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" >/dev/null
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 echo "Updating brew and casks"
 # Make sure we’re using the latest Homebrew.
-brew update >/dev/null
+brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade >/dev/null
+brew upgrade
 
 echo "Installing git..."
-brew install git >/dev/null
+brew install git
 
 # Install ruby-build and rbenv
 echo "Installing rbenv..."
-brew install ruby-build >/dev/null
-brew install rbenv >/dev/null
+brew install ruby-build
+brew install rbenv
 RBENVINIT='eval "$(rbenv init -)"'
 if [[ $SHELL =~ "bash" ]]; then
     touch ~/.bash_profile
@@ -54,18 +54,18 @@ else
 fi
 
 echo "Configuring rbenv..."
-rbenv install 2.5.0 >/dev/null
-rbenv global 2.5.0 >/dev/null
-rbenv rehash >/dev/null
+rbenv install 2.5.0
+rbenv global 2.5.0
+rbenv rehash
 
 echo "Installing Cocoapods..."
-gem install cocoapods >/dev/null
+gem install cocoapods
 
 echo "Rehashing..."
-rbenv rehash >/dev/null
+rbenv rehash
 
 echo "Installing bundler..."
-gem install bundler >/dev/null
-bundle install >/dev/null
+gem install bundler
+bundle install
 
 echo "Complete."
