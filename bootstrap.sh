@@ -33,11 +33,11 @@ echo "Installing rbenv..."
 brew install ruby-build
 brew install rbenv
 RBENVINIT='eval "$(rbenv init -)"'
-if [[ $SHELL ~= "bash" ]]; then
+if [[ $SHELL =~ "bash" ]]; then
     grep -q "$RBENVINIT" ~/.bash_profile || echo "$RBENVINIT" >> ~/.bash_profile
     source ~/.bash_profile
 else
-    if [[ $SHELL ~= "zsh" ]]; then
+    if [[ $SHELL =~ "zsh" ]]; then
         grep -q "$RBENVINIT" ~/.zshrc || echo "$RBENVINIT" >> ~/.zshrc
         source ~/.zshrc
     else
