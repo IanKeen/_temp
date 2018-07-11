@@ -2,7 +2,7 @@
 
 echo "Configuring development environment"
 echo ""
-echo "This may take some time... grab a coffee."
+echo "This may take some time..."
 echo ""
 echo "Before continuing ensure you have Xcode installed and you have opened it and accepted the User Agreement"
 read -p "then press [Return] to continue..."
