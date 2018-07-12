@@ -76,9 +76,13 @@ gem install bundler
 bundle install
 
 if [[ $SHELL =~ "bash" ]]; then
-    source ~/.bash_profile
+    echo "reloading bash"
+    . ~/.bash_profile
 elif [[ $SHELL =~ "zsh" ]]; then
-    source ~/.zshrc
+    echo "reloading zsh"
+    . ~/.zshrc
+else
+    echo "naddaaaa"
 fi
 echo ""
 echo "Complete."
