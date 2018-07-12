@@ -82,8 +82,7 @@ gem install bundler
 bundle install
 
 if [ ! -z "$SOURCEFILE" ]; then
-    echo "$SOURCEFILE"
-    source "$SOURCEFILE"
+    source $SOURCEFILE
 fi
 echo ""
 echo "Complete."
