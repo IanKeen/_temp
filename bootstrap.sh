@@ -75,6 +75,5 @@ echo "Installing bundler..."
 gem install bundler
 bundle install
 
-export PATH=$PATH
 echo ""
-echo "Complete."
+echo "Complete, please restart terminal for changes to take effect."
