@@ -44,16 +44,20 @@ echo "Installing rbenv..."
 brew install ruby-build
 brew install rbenv
 RBENVINIT='eval "$(rbenv init -)"'
+SOURCEFILE=''
 if [[ $SHELL =~ "bash" ]]; then
     touch ~/.bash_profile
     grep -q "$RBENVINIT" ~/.bash_profile || echo "$RBENVINIT" >> ~/.bash_profile
+    SOURCEFILE = ~/.bash_profile
     source ~/.bash_profile
 else
     if [[ $SHELL =~ "zsh" ]]; then
         touch ~/.zshrc
         grep -q "$RBENVINIT" ~/.zshrc || echo "$RBENVINIT" >> ~/.zshrc
+        SOURCEFILE = ~/.zshrc
         source ~/.zshrc
     else
+        unset SOURCEFILE
         echo "Unable to determine your shell... attempting to continue"
     fi
 fi
@@ -77,5 +81,8 @@ echo "Installing bundler..."
 gem install bundler
 bundle install
 
+if [ -z "$SOURCEFILE" ]; then
+      source $SOURCEFILE
+fi
 echo ""
 echo "Complete."
