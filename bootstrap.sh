@@ -77,10 +77,10 @@ bundle install
 
 if [[ $SHELL =~ "bash" ]]; then
     echo "reloading bash"
-    . ~/.bash_profile
+    . $HOME/.bash_profile
 elif [[ $SHELL =~ "zsh" ]]; then
     echo "reloading zsh"
-    . ~/.zshrc
+    . $HOME/.zshrc
 else
     echo "naddaaaa"
 fi
