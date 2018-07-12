@@ -48,13 +48,13 @@ SOURCEFILE=''
 if [[ $SHELL =~ "bash" ]]; then
     touch ~/.bash_profile
     grep -q "$RBENVINIT" ~/.bash_profile || echo "$RBENVINIT" >> ~/.bash_profile
-    SOURCEFILE='~/.bash_profile'
+    SOURCEFILE=~/.bash_profile
     source ~/.bash_profile
 else
     if [[ $SHELL =~ "zsh" ]]; then
         touch ~/.zshrc
         grep -q "$RBENVINIT" ~/.zshrc || echo "$RBENVINIT" >> ~/.zshrc
-        SOURCEFILE='~/.zshrc'
+        SOURCEFILE=~/.zshrc
         source ~/.zshrc
     else
         unset SOURCEFILE
