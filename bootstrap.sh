@@ -75,14 +75,6 @@ echo "Installing bundler..."
 gem install bundler
 bundle install
 
-if [[ $SHELL =~ "bash" ]]; then
-    echo "reloading bash"
-    . $HOME/.bash_profile
-elif [[ $SHELL =~ "zsh" ]]; then
-    echo "reloading zsh"
-    . $HOME/.zshrc
-else
-    echo "naddaaaa"
-fi
+export PATH=$PATH
 echo ""
 echo "Complete."
