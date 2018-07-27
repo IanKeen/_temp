@@ -84,11 +84,12 @@ read -p "(or an empty value to skip): " ENCRYPTIONVALUE
 if ! [[ -z "$ENCRYPTIONVALUE" ]]; then
     if [[ $SHELL =~ "bash" ]]; then
         touch ~/.bash_profile
-        echo "export $ENCRYPTIONKEY='$ENCRYPTIONVALUE'" >> ~/.bash_profile
+        grep -q "export $ENCRYPTIONKEY=" ~/.bash_profile || echo "export $ENCRYPTIONKEY='$ENCRYPTIONVALUE'" >> ~/.bash_profile
+        sed -iE "s/export $ENCRYPTIONKEY=\'.*\'/export $ENCRYPTIONKEY=\'$ENCRYPTIONVALUE\'/g" ~/.bash_profile
     elif [[ $SHELL =~ "zsh" ]]; then
         touch ~/.zshrc
-        echo "export $ENCRYPTIONKEY='$ENCRYPTIONVALUE'" >> ~/.zshrc
-        source ~/.zshrc
+        grep -q "export $ENCRYPTIONKEY=" ~/.zshrc || echo "export $ENCRYPTIONKEY='$ENCRYPTIONVALUE'" >> ~/.zshrc
+        sed -iE "s/export $ENCRYPTIONKEY=\'.*\'/export $ENCRYPTIONKEY=\'$ENCRYPTIONVALUE\'/g" ~/.zshrc
     else
         echo "Unable to determine your shell... attempting to continue"
     fi
