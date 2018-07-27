@@ -77,7 +77,7 @@ bundle install
 
 echo ""
 echo "Configuring encryption..."
-ENCRYPTIONKEY=''
+ENCRYPTIONKEY='TROVSIC_GITCRYPT_PASSPHRASE'
 read -p "Please enter the value for $ENCRYPTIONKEY: (or an empty value to skip)" ENCRYPTIONVALUE
 
 if ! [[ -z "$ENCRYPTIONVALUE" ]]; then
