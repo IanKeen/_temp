@@ -76,4 +76,24 @@ gem install bundler
 bundle install
 
 echo ""
+echo "Configuring encryption..."
+ENCRYPTIONKEY=''
+read -p "Please enter the value for $ENCRYPTIONKEY: (or an empty value to skip)" ENCRYPTIONVALUE
+
+if ! [[ -z "$ENCRYPTIONVALUE" ]]; then
+    if [[ $SHELL =~ "bash" ]]; then
+        touch ~/.bash_profile
+        echo "export $ENCRYPTIONKEY='$ENCRYPTIONVALUE'" >> ~/.bash_profile
+    elif [[ $SHELL =~ "zsh" ]]; then
+        touch ~/.zshrc
+        echo "export $ENCRYPTIONKEY='$ENCRYPTIONVALUE'" >> ~/.zshrc
+        source ~/.zshrc
+    else
+        echo "Unable to determine your shell... attempting to continue"
+    fi
+else
+    echo "Skipping..."
+fi
+
+echo ""
 echo "Complete, please restart terminal for changes to take effect."
