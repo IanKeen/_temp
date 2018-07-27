@@ -78,7 +78,8 @@ bundle install
 echo ""
 echo "Configuring encryption..."
 ENCRYPTIONKEY='TROVSIC_GITCRYPT_PASSPHRASE'
-read -p "Please enter the value in 1Password for $ENCRYPTIONKEY\n(or an empty value to skip): " ENCRYPTIONVALUE
+echo "Please enter the value in 1Password for $ENCRYPTIONKEY"
+read -p "(or an empty value to skip): " ENCRYPTIONVALUE
 
 if ! [[ -z "$ENCRYPTIONVALUE" ]]; then
     if [[ $SHELL =~ "bash" ]]; then
