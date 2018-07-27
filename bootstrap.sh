@@ -43,14 +43,14 @@ echo ""
 echo "Installing rbenv..."
 brew install ruby-build
 brew install rbenv
-RBENVINIT='\neval "$(rbenv init -)"'
+RBENVINIT='eval "$(rbenv init -)"'
 if [[ $SHELL =~ "bash" ]]; then
     touch ~/.bash_profile
-    grep -q "$RBENVINIT" ~/.bash_profile || echo -e "$RBENVINIT" >> ~/.bash_profile
+    grep -q "$RBENVINIT" ~/.bash_profile || echo -e "\n$RBENVINIT" >> ~/.bash_profile
     source ~/.bash_profile
 elif [[ $SHELL =~ "zsh" ]]; then
     touch ~/.zshrc
-    grep -q "$RBENVINIT" ~/.zshrc || echo -e "$RBENVINIT" >> ~/.zshrc
+    grep -q "$RBENVINIT" ~/.zshrc || echo -e "\n$RBENVINIT" >> ~/.zshrc
     source ~/.zshrc
 else
     echo "Unable to determine your shell... attempting to continue"
@@ -102,3 +102,4 @@ echo "Complete, please restart terminal for changes to take effect."
 echo "then come back to the project folder and run:"
 echo ""
 echo "bundle install && bundle exec fastlane install"
+echo ""
